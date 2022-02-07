@@ -6,8 +6,10 @@ const Input = (props) => {
 			{props.type.map((element) => {
 				return (
 					<div className='input__container'>
-						<h3 className='input__container__title'>{element.title}</h3>
-						<input type='number' className='input__container__input' />
+						<label className='input__container__label'>{element.title}</label>
+						<br />
+						<br />
+						<input type='text' className='input__container__input' />
 					</div>
 				)
 			})}

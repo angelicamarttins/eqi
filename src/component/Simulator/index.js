@@ -1,8 +1,9 @@
+import './style.scss'
 import Select from '../Select'
 import Input from '../Input'
 
 const Simulator = (props) => {
-	const buttonArray = [
+	const buttonArrayRendimento = [
 		{
 			id: 'Rendimento',
 			title: 'Bruto',
@@ -11,6 +12,9 @@ const Simulator = (props) => {
 			id: 'Rendimento',
 			title: 'Líquido',
 		},
+	]
+
+	const buttonArrayIndexacao = [
 		{
 			id: 'Tipos de Indexação',
 			title: 'PRÉ',
@@ -25,7 +29,7 @@ const Simulator = (props) => {
 		},
 	]
 
-	const inputArray = [
+	const inputArrayRendimento = [
 		{
 			id: 'Rendimento',
 			title: 'Aporte Inicial',
@@ -38,6 +42,9 @@ const Simulator = (props) => {
 			id: 'Rendimento',
 			title: 'IPCA (ao ano)',
 		},
+	]
+
+	const inputArrayIndexacao = [
 		{
 			id: 'Tipos de Indexação',
 			title: 'Aporte Mensal',
@@ -52,10 +59,15 @@ const Simulator = (props) => {
 		},
 	]
 	return (
-		<div>
-			<h3>Rendimento</h3>
-			<Select button={buttonArray} />
-			<Input type={inputArray} />
+		<div className='simulator'>
+			<div className='simulator__rendimento'>
+				<Select button={buttonArrayRendimento} />
+				<Input type={inputArrayRendimento} />
+			</div>
+			<div className='simulator__indexacao'>
+				<Select button={buttonArrayIndexacao} />
+				<Input type={inputArrayIndexacao} />
+			</div>
 		</div>
 	)
 }

@@ -1,14 +1,37 @@
+@mixin padding($pixels) {
+	color: #fff;
+	background-color: #ed8e53;
+	padding: $pixels;
+	border: 1px solid black;
+	cursor: pointer;
+
+	&:first-child {
+		border-radius: 8px 0 0 8px;
+	}
+
+	&:last-child {
+		border-radius: 0 8px 8px 0;
+	}
+}
+
 .select {
-	&__btn {
-		color: #fff;
-		background-color: orange;
-		padding: 1rem;
-		border: 1px solid black;
-		&:first-child {
-      border-radius: 3px 0 0 3px;
+	margin: 1.75rem 0;
+
+	&__title {
+		font: {
+			size: 0.75rem;
+			weight: 400;
 		}
-    &:last-child {
-      border-radius: 0 3px 3px 0;
-    }
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__btn--rend {
+		@include padding(1rem 1.5rem);
+	}
+
+	&__btn--index {
+		@include padding(1rem);
 	}
 }

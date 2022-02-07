@@ -1,17 +1,21 @@
 .input {
 	&__container {
-		&__title {
+    width: 100%;
+    display: block;
+    margin: 1.75rem 0;
+    // border: 2px solid red;
+		&__label {
 			font: {
 				size: 0.75rem;
 				weight: 300;
 			}
-			// text-align: center;
 		}
 
 		&__input {
-      outline: none;
-      border: none;
-      border-bottom: 1px solid black;
+			outline: none;
+			border: none;
+			border-bottom: 1px solid black;
+      width: 100%;
 		}
 	}
 }
