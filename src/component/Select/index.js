@@ -4,7 +4,7 @@ import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 import './style.scss'
 
 const Select = (props) => {
-	const { id } = props.button[0]
+	const { id } = props.type[0]
 
 	return (
 		<div className='select'>
@@ -13,7 +13,7 @@ const Select = (props) => {
 				<FontAwesomeIcon icon={faInfoCircle} className='select__title__icon' />
 			</div>
 			<div className='select__btn'>
-				{props.button.map((element) => (
+				{props.type.map((element) => (
 					<button
 						className={
 							element.id === 'Rendimento'

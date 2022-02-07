@@ -1,0 +1,20 @@
+.button {
+	width: 250px;
+	height: 60px;
+	padding: 1rem;
+	cursor: pointer;
+	border-radius: 8px;
+  margin: 0.5rem;
+	&:hover {
+		background-color: #ed8e53;
+		border: none;
+		outline: none;
+	}
+
+	&__label {
+		font: {
+			size: 1.15rem;
+			weight: 700;
+		}
+	}
+}
