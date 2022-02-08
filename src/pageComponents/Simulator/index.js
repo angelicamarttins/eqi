@@ -1,7 +1,7 @@
 import './style.scss'
-import Select from '../Select'
-import Input from '../Input'
-import Button from '../Button'
+import Select from '../../component/Select'
+import Input from '../../component/Input'
+import Button from '../../component/Button'
 
 const Simulator = (props) => {
 	const selectArrayRendimento = [
