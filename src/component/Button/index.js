@@ -2,10 +2,15 @@ import './style.scss'
 
 const Button = (props) => {
 	return (
-		<div>
+		<div className='button'>
 			{props.type.map((element) => {
 				return (
-					<button className='button' type='submit'>
+					<button
+						className={
+							element.title === 'Simular' ? `button--simular` : `button--limpar`
+						}
+						type='submit'
+					>
 						<label className='button__label'>{element.title}</label>
 					</button>
 				)

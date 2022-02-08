@@ -1,6 +1,4 @@
 @mixin padding($pixels) {
-	color: #fff;
-	background-color: #ed8e53;
 	padding: $pixels;
 	border: 1px solid black;
 	cursor: pointer;
@@ -12,6 +10,11 @@
 	&:last-child {
 		border-radius: 0 8px 8px 0;
 	}
+
+  &:hover {
+    background-color: #ed8e53;
+    color: #fff;
+  }
 }
 
 .select {

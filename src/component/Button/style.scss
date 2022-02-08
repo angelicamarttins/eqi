@@ -1,14 +1,35 @@
+$bgHover: #ed8e53;
+$bgWhite: #fff;
+$bgGray: #969696;
+
 .button {
-	width: 250px;
-	height: 60px;
-	padding: 1rem;
-	cursor: pointer;
-	border-radius: 8px;
-  margin: 0.5rem;
-	&:hover {
-		background-color: #ed8e53;
-		border: none;
-		outline: none;
+	@mixin buttonType($backgroundColor, $border) {
+		width: 250px;
+		height: 60px;
+		padding: 1rem;
+		cursor: pointer;
+		border-radius: 8px;
+		margin: 0.5rem;
+		background-color: $backgroundColor;
+		@if ($border == true) {
+			border: 2px solid black;
+		} @else {
+			border: none;
+		}
+
+		&:hover {
+			background-color: $bgHover;
+			border: none;
+			outline: none;
+		}
+	}
+
+	&--limpar {
+		@include buttonType(transparent, true);
+	}
+
+	&--simular {
+		@include buttonType($bgGray, false);
 	}
 
 	&__label {
