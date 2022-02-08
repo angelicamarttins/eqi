@@ -2,6 +2,7 @@
 	padding: $pixels;
 	border: 1px solid black;
 	cursor: pointer;
+  font-size: 0.95rem;
 
 	&:first-child {
 		border-radius: 8px 0 0 8px;
@@ -18,13 +19,14 @@
 }
 
 .select {
-	margin: 1.75rem 0;
+	margin: 2rem 0;
 
 	&__title {
 		font: {
 			size: 0.75rem;
 			weight: 400;
 		}
+    margin: 1rem 0;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;

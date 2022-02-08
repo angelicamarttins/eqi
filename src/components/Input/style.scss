@@ -3,19 +3,23 @@
     width: 100%;
     display: block;
     margin: 1.75rem 0;
-    // border: 2px solid red;
+
 		&__label {
+      display: block;
 			font: {
-				size: 0.75rem;
+				size: 1rem;
 				weight: 300;
 			}
 		}
 
 		&__input {
+      display: block;
+      width: 100%;
+      margin: 2rem 0 3rem 0;
 			outline: none;
 			border: none;
 			border-bottom: 1px solid black;
-      width: 100%;
+      background-color: #efefef;
 		}
 	}
 }

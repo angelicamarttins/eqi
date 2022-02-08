@@ -1,15 +1,17 @@
 .simulator {
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
+	&__input-area {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
 
-  &__rendimento {
-    min-width: 200px;
-    margin: 1rem;
-  }
+		&--rendimento {
+			min-width: 200px;
+			margin-right: 2rem;
+		}
 
-  &__indexacao {
-    min-width: 225px;
-    margin: 1rem;
-  }
+		&--indexacao {
+			min-width: 225px;
+			margin-left: 2rem;
+		}
+	}
 }

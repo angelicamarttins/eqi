@@ -7,8 +7,6 @@ const Input = (props) => {
 				return (
 					<div className='input__container'>
 						<label className='input__container__label'>{element.title}</label>
-						<br />
-						<br />
 						<input type='text' className='input__container__input' />
 					</div>
 				)

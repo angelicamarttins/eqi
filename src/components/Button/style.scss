@@ -4,12 +4,11 @@ $bgGray: #969696;
 
 .button {
 	@mixin buttonType($backgroundColor, $border) {
-		width: 250px;
-		height: 60px;
+		width: 16.5rem;
+		height: 3.75rem;
 		padding: 1rem;
 		cursor: pointer;
 		border-radius: 8px;
-		margin: 0.5rem;
 		background-color: $backgroundColor;
 		@if ($border == true) {
 			border: 2px solid black;
@@ -25,10 +24,12 @@ $bgGray: #969696;
 	}
 
 	&--limpar {
+    margin-right: 0.75rem;
 		@include buttonType(transparent, true);
 	}
 
 	&--simular {
+    margin-left: 0.75rem;
 		@include buttonType($bgGray, false);
 	}
 
