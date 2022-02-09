@@ -1,0 +1,32 @@
+.cards {
+  display: grid;
+  grid-template-columns: 3fr;
+  grid-template-rows: 3fr;
+  gap: 3rem;
+
+  &__box {
+
+    min-height: 100px;
+    min-width: 200px;
+    // padding: 3rem;
+    border-radius: 3px;
+    box-shadow: 0 0 5px 3px #969696;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &__box--1 {
+    grid-area: 1 / 1 / 1 / 1;
+  }
+
+  &__box--2 {
+    grid-area: 1 / 2 / 1 / 2;
+  }
+
+  &__box--3 {
+    grid-area: 1 / 3 / 1 / 3;
+  }
+}

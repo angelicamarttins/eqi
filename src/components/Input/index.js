@@ -1,5 +1,5 @@
 import './style.scss'
-
+import Db from '../../db.json'
 const Input = (props) => {
 	return (
 		<fieldset className='input'>
