@@ -2,7 +2,7 @@ import './style.scss'
 
 const Input = (props) => {
 	return (
-		<div className='input'>
+		<fieldset className='input'>
 			{props.type.map((element) => {
 				return (
 					<div className='input__container'>
@@ -11,7 +11,7 @@ const Input = (props) => {
 					</div>
 				)
 			})}
-		</div>
+		</fieldset>
 	)
 }
 

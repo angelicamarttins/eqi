@@ -7,7 +7,7 @@ const Select = (props) => {
 	const { id } = props.type[0]
 
 	return (
-		<div className='select'>
+		<fieldset className='select'>
 			<div className='select__title'>
 				<p>{id}</p>
 				<FontAwesomeIcon icon={faInfoCircle} className='select__title__icon' />
@@ -26,7 +26,7 @@ const Select = (props) => {
 					</button>
 				))}
 			</div>
-		</div>
+		</fieldset>
 	)
 }
 
