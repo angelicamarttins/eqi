@@ -1,86 +1,90 @@
-import './style.scss'
-import Select from '../../components/Select'
+import { useState, useEffect } from 'react'
+import RadioGroup from '../../components/RadioGroup'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
+import './style.scss'
 
-const Simulator = (props) => {
-	const selectArrayRendimento = [
+const Simulator = ({ doSimulacao }) => {
+	const [cdi, setCdi] = useState()
+	const [ipca, setIpca] = useState()
+	const [rendimento, setRendimento] = useState()
+	const [indexacao, setIndexacao] = useState()
+
+	useEffect(() => {
+		getIndicadores()
+	}, [])
+
+	const getIndicadores = async () => {
+		const response = await fetch('http://localhost:3000/indicadores')
+		const indicadores = await response.json()
+
+		const cdiObj = indicadores.find((item) => item.nome === 'cdi')
+		setCdi(cdiObj.valor)
+
+		const ipcaObj = indicadores.find((item) => item.nome === 'ipca')
+		setIpca(ipcaObj.valor)
+	}
+
+	const rendimentos = [
 		{
-			id: 'Rendimento',
-			title: 'Bruto',
+			id: 'bruto',
+			label: 'Bruto',
 		},
 		{
-			id: 'Rendimento',
-			title: 'Líquido',
+			id: 'liquido',
+			label: 'Líquido',
 		},
 	]
 
-	const selectArrayIndexacao = [
+	const indexacoes = [
 		{
-			id: 'Tipos de Indexação',
-			title: 'PRÉ',
+			id: 'pre',
+			label: 'PRÉ',
 		},
 		{
-			id: 'Tipos de Indexação',
-			title: 'PÓS',
+			id: 'pos',
+			label: 'PÓS',
 		},
 		{
-			id: 'Tipos de Indexação',
-			title: 'FIXADO',
-		},
-	]
-
-	const inputArrayRendimento = [
-		{
-			id: 'Rendimento',
-			title: 'Aporte Inicial',
-		},
-		{
-			id: 'Rendimento',
-			title: 'Prazo (em meses)',
-		},
-		{
-			id: 'Rendimento',
-			title: 'IPCA (ao ano)',
+			id: 'fixado',
+			label: 'FIXADO',
 		},
 	]
 
-	const inputArrayIndexacao = [
-		{
-			id: 'Tipos de Indexação',
-			title: 'Aporte Mensal',
-		},
-		{
-			id: 'Tipos de Indexação',
-			title: 'Rentabilidade',
-		},
-		{
-			id: 'Tipos de Indexação',
-			title: 'CDI (ao ano)',
-		},
-	]
-
-	const buttonArray = [
-		{
-			title: 'Limpar campos',
-		},
-		{
-			title: 'Simular',
-		},
-	]
 	return (
 		<div className='simulator'>
-			<div className='simulator__input-area'>
-				<div className='simulator__input-area--rendimento'>
-					<Select type={selectArrayRendimento} />
-					<Input type={inputArrayRendimento} />
-				</div>
-				<div className='simulator__input-area--indexacao'>
-					<Select type={selectArrayIndexacao} />
-					<Input type={inputArrayIndexacao} />
-				</div>
+			<div className='simulator__column'>
+				<RadioGroup
+					title='Rendimento'
+					items={rendimentos}
+					name='rendimentos'
+					onChange={setRendimento}
+				/>
+				<Input title='Aporte Inicial' />
+				<Input title='Prazo (em meses)' />
+				<Input title='IPCA (ao ano)' value={`${ipca}%`} />
+				<Button color='transparent' type='button'>
+					Limpar Campos
+				</Button>
 			</div>
-			<Button type={buttonArray} />
+			<div className='simulator__column'>
+				<RadioGroup
+					title='Tipos de indexação'
+					items={indexacoes}
+					name='indexacao'
+					onChange={setIndexacao}
+				/>
+				<Input title='Aporte Mensal' />
+				<Input title='Rentabilidade' />
+				<Input title='CDI (ao ano)' value={`${cdi}%`} />
+				<Button
+					color='orange'
+					type='button'
+					onClick={() => doSimulacao(rendimento, indexacao)}
+				>
+					Simular
+				</Button>
+			</div>
 		</div>
 	)
 }

@@ -1,17 +1,11 @@
 import './style.scss'
-import Db from '../../db.json'
-const Input = (props) => {
+
+const Input = ({ title, value }) => {
 	return (
-		<fieldset className='input'>
-			{props.type.map((element) => {
-				return (
-					<div className='input__container'>
-						<label className='input__container__label'>{element.title}</label>
-						<input type='text' className='input__container__input' />
-					</div>
-				)
-			})}
-		</fieldset>
+		<div className='input__container'>
+			<label className='input__container__label'>{title}</label>
+			<input type='text' className='input__container__input' value={value} />
+		</div>
 	)
 }
 

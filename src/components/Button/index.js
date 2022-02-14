@@ -1,21 +1,14 @@
 import './style.scss'
 
-const Button = (props) => {
+const Button = ({ children, type, color, onClick }) => {
 	return (
-		<div className='button'>
-			{props.type.map((element) => {
-				return (
-					<button
-						className={
-							element.title === 'Simular' ? `button--simular` : `button--limpar`
-						}
-						type='submit'
-					>
-						<label className='button__label'>{element.title}</label>
-					</button>
-				)
-			})}
-		</div>
+		<button
+			className={`button button--${color}`}
+			type={type}
+			onClick={() => onClick('angelica')}
+		>
+			<label className='button__label'>{children}</label>
+		</button>
 	)
 }
 

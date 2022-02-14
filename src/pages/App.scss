@@ -1,7 +1,7 @@
 .app {
 	background-color: #efefef;
 	margin: 2rem;
-  padding: 1rem;
+	padding: 1rem;
 }
 
 .header {
@@ -19,15 +19,21 @@
 .main {
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
-  margin: 2rem;
+	margin: 2rem;
+	gap: 4rem;
+
+	&__title {
+		font: {
+			size: 2rem;
+			weight: 700;
+		}
+	}
 
 	&__simulator {
-		&__title {
-			font: {
-				size: 2rem;
-				weight: 700;
-			}
-		}
+		width: 41.66666666666667%;
+	}
+
+	&__results {
+		width: 58.33333333333333%;
 	}
 }

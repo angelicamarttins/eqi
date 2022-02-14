@@ -3,34 +3,25 @@ $bgWhite: #fff;
 $bgGray: #969696;
 
 .button {
-	@mixin buttonType($backgroundColor, $border) {
-		width: 16.5rem;
-		height: 3.75rem;
-		padding: 1rem;
-		cursor: pointer;
-		border-radius: 8px;
-		background-color: $backgroundColor;
-		@if ($border == true) {
-			border: 2px solid black;
-		} @else {
-			border: none;
-		}
+	width: 16.5rem;
+	height: 3.75rem;
+	padding: 1rem;
+	cursor: pointer;
+	border-radius: 8px;
+	border: 2px solid transparent;
+	color: black;
 
-		&:hover {
-			background-color: $bgHover;
-			border: none;
-			outline: none;
-		}
+	&:hover {
+		opacity: 0.8;
+		transition: opacity 0.3s ease-out;
 	}
 
-	&--limpar {
-    margin-right: 0.75rem;
-		@include buttonType(transparent, true);
+	&--orange {
+		background-color: #ed8e53;
 	}
 
-	&--simular {
-    margin-left: 0.75rem;
-		@include buttonType($bgGray, false);
+	&--transparent {
+		border-color: black;
 	}
 
 	&__label {
