@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+//import InputMask from 'react-input-mask'
 import RadioGroup from '../../components/RadioGroup'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
@@ -9,11 +10,13 @@ const Simulator = ({ doSimulacao }) => {
 	const [ipca, setIpca] = useState()
 	const [rendimento, setRendimento] = useState()
 	const [indexacao, setIndexacao] = useState()
+	const [aporteInicial, setAporteInicial] = useState('')
+	// const [validator, setValidator] = useState(true)
 
 	useEffect(() => {
 		getIndicadores()
 	}, [])
-
+	console.log(aporteInicial)
 	const getIndicadores = async () => {
 		const response = await fetch('http://localhost:3000/indicadores')
 		const indicadores = await response.json()
@@ -46,10 +49,11 @@ const Simulator = ({ doSimulacao }) => {
 			label: 'PÓS',
 		},
 		{
-			id: 'fixado',
+			id: 'ipca',
 			label: 'FIXADO',
 		},
 	]
+	// console.log(validator)
 
 	return (
 		<div className='simulator'>
@@ -60,7 +64,12 @@ const Simulator = ({ doSimulacao }) => {
 					name='rendimentos'
 					onChange={setRendimento}
 				/>
-				<Input title='Aporte Inicial' />
+				<Input
+					title='Aporte Inicial'
+					value={aporteInicial}
+					onChange={(e) => setAporteInicial(e.target.value)}
+				/>
+				{aporteInicial.match(/\D/) && <p>Aporte deve ser um número</p>}
 				<Input title='Prazo (em meses)' />
 				<Input title='IPCA (ao ano)' value={`${ipca}%`} />
 				<Button color='transparent' type='button'>
@@ -78,7 +87,7 @@ const Simulator = ({ doSimulacao }) => {
 				<Input title='Rentabilidade' />
 				<Input title='CDI (ao ano)' value={`${cdi}%`} />
 				<Button
-					color='orange'
+					color='gray'
 					type='button'
 					onClick={() => doSimulacao(rendimento, indexacao)}
 				>

@@ -7,4 +7,15 @@
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
+
+	&__title {
+		text-align: center;
+	}
+
+	&__value {
+		&--green {
+			color: #40bd2d;
+      font-weight: bold;
+		}
+	}
 }

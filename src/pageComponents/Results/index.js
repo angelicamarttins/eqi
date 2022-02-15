@@ -12,16 +12,26 @@ const Results = ({
 	return (
 		<div className='results'>
 			{valorFinalBruto !== undefined && (
-				<Card title='Valor final Bruto' value={`R$ ${valorFinalBruto}`} />
+				<Card title='Valor Final Bruto' value={`R$ ${valorFinalBruto}`} />
 			)}
 			{aliquotaIR !== undefined && (
 				<Card title='Alíquota do IR' value={`${aliquotaIR}%`} />
 			)}
-
-			<Card title='Valor Pago em IR' value={`R$ ${valorPagoIR}`} />
-			<Card title='Valor Final Líquido' value={`R$ ${valorFinalLiquido}`} />
-			<Card title='Valor Total Investido' value={`R$ ${valorTotalInvestido}`} />
-			<Card title='Ganho Líquido' value={`R$ ${ganhoLiquido}`} />
+			{valorPagoIR !== undefined && (
+				<Card title='Valor Pago em IR' value={`R$ ${valorPagoIR}`} />
+			)}
+			{valorFinalLiquido !== undefined && (
+				<Card title='Valor Final Líquido' value={`R$ ${valorFinalLiquido}`} />
+			)}
+			{valorTotalInvestido !== undefined && (
+				<Card
+					title='Valor Total Investido'
+					value={`R$ ${valorTotalInvestido}`}
+				/>
+			)}
+			{ganhoLiquido !== undefined && (
+				<Card title='Ganho Líquido' value={`R$ ${ganhoLiquido}`} />
+			)}
 		</div>
 	)
 }

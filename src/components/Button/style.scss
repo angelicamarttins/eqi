@@ -12,12 +12,12 @@ $bgGray: #969696;
 	color: black;
 
 	&:hover {
-		opacity: 0.8;
-		transition: opacity 0.3s ease-out;
+		background-color: #ed8e53;
+		transition: background-color 0.3s ease-out;
 	}
 
-	&--orange {
-		background-color: #ed8e53;
+	&--gray {
+		background-color: #969696;
 	}
 
 	&--transparent {

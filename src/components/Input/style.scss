@@ -2,11 +2,11 @@
   border: none;
 
   &__container {
-    width: 100%;
     display: block;
     margin: 1.75rem 0;
 
 		&__label {
+      text-align: left;
       display: block;
 			font: {
 				size: 1rem;

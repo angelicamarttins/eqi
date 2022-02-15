@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 import Simulator from '../pageComponents/Simulator'
 import Results from '../pageComponents/Results'
@@ -9,12 +9,11 @@ function App() {
 
 	const doSimulacao = async (rendimento, indexacao) => {
 		const response = await fetch(
-			`http://localhost:3000/simulacoes?tipoIndexacao=pre&tipoRendimento=bruto`
+			`http://localhost:3000/simulacoes?tipoIndexacao=${indexacao}&tipoRendimento=${rendimento}`
 		)
 		const simulacao = await response.json()
 		setResultadoSimulacao(simulacao?.[0])
 	}
-
 	return (
 		<div className='app'>
 			<header className='header'>
@@ -30,7 +29,9 @@ function App() {
 					/>
 				</div>
 				<div className='main__results'>
-					<h2 className='main__title'>Resultado da Simulação</h2>
+					{resultadoSimulacao !== undefined && (
+						<h2 className='main__title'>Resultado da Simulação</h2>
+					)}
 					<Results {...resultadoSimulacao} />
 				</div>
 			</main>
