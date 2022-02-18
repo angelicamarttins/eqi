@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-//import InputMask from 'react-input-mask'
 import RadioGroup from '../../components/RadioGroup'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
@@ -10,13 +9,12 @@ const Simulator = ({ doSimulacao }) => {
 	const [ipca, setIpca] = useState()
 	const [rendimento, setRendimento] = useState()
 	const [indexacao, setIndexacao] = useState()
-	const [aporteInicial, setAporteInicial] = useState('')
-	// const [validator, setValidator] = useState(true)
+	const [values, setValues] = useState()
 
 	useEffect(() => {
 		getIndicadores()
 	}, [])
-	console.log(aporteInicial)
+
 	const getIndicadores = async () => {
 		const response = await fetch('http://localhost:3000/indicadores')
 		const indicadores = await response.json()
@@ -53,7 +51,6 @@ const Simulator = ({ doSimulacao }) => {
 			label: 'FIXADO',
 		},
 	]
-	// console.log(validator)
 
 	return (
 		<div className='simulator'>
@@ -64,15 +61,14 @@ const Simulator = ({ doSimulacao }) => {
 					name='rendimentos'
 					onChange={setRendimento}
 				/>
-				<Input
-					title='Aporte Inicial'
-					value={aporteInicial}
-					onChange={(e) => setAporteInicial(e.target.value)}
-				/>
-				{aporteInicial.match(/\D/) && <p>Aporte deve ser um número</p>}
-				<Input title='Prazo (em meses)' />
+				<Input title='Aporte Inicial' value={values} />
+				<Input title='Prazo (em meses)' value={values} />
 				<Input title='IPCA (ao ano)' value={`${ipca}%`} />
-				<Button color='transparent' type='button'>
+				<Button
+					color='transparent'
+					type='button'
+					onClick={(boolean) => (boolean === true ? setValues('') : '')}
+				>
 					Limpar Campos
 				</Button>
 			</div>
@@ -83,8 +79,8 @@ const Simulator = ({ doSimulacao }) => {
 					name='indexacao'
 					onChange={setIndexacao}
 				/>
-				<Input title='Aporte Mensal' />
-				<Input title='Rentabilidade' />
+				<Input title='Aporte Mensal' value={values} />
+				<Input title='Rentabilidade' value={values} />
 				<Input title='CDI (ao ano)' value={`${cdi}%`} />
 				<Button
 					color='gray'

@@ -1,5 +1,4 @@
 import { useState } from 'react'
-
 import Simulator from '../pageComponents/Simulator'
 import Results from '../pageComponents/Results'
 import './App.scss'
@@ -11,9 +10,11 @@ function App() {
 		const response = await fetch(
 			`http://localhost:3000/simulacoes?tipoIndexacao=${indexacao}&tipoRendimento=${rendimento}`
 		)
+
 		const simulacao = await response.json()
 		setResultadoSimulacao(simulacao?.[0])
 	}
+
 	return (
 		<div className='app'>
 			<header className='header'>

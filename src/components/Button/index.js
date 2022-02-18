@@ -5,7 +5,7 @@ const Button = ({ children, type, color, onClick }) => {
 		<button
 			className={`button button--${color}`}
 			type={type}
-			onClick={() => onClick()}
+			onClick={() => (children === 'Limpar Campos' ? onClick(true) : onClick())}
 		>
 			<label className='button__label'>{children}</label>
 		</button>

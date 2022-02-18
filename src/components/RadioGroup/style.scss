@@ -35,8 +35,9 @@
 			}
 
 			&:hover {
-				background-color: #ed8e53;
 				color: #fff;
+        background-color: #ed8e53;
+        transition: background-color 0.3s ease-out;
 			}
 
 			&--selected {
