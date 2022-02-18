@@ -4,7 +4,7 @@ This project is the result of a technical test proposed by [EQI Investimentos](h
 
 Here is the wireframe sent by the company:
 
-![wireframe.png]
+![wireframe](https://user-images.githubusercontent.com/82389853/154765851-92d30881-e693-4587-ab23-13a29637fb82.png)
 
 If you want to know more and see other wireframes, please, check the repository link with all the informations and wireframes.
 
